@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: chrissubramani/argocd:build-27
+        image: chrissubramani/argocd:build-28
         ports:
         - containerPort: 80
 
