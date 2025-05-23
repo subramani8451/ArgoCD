@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  labels:
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: chrissubramani/nginx:latest
+        image: nginx:latest
         ports:
         - containerPort: 80
 
@@ -28,6 +30,7 @@ spec:
   selector:
     app: nginx
   ports:
-    - port: 80
-      targetPort: 80
-      nodePort: 30035
+  - protocol: TCP
+    port: 80       # service port
+    targetPort: 80 # container port
+    nodePort: 30080 # static node port, can be any number between 30000-32767
