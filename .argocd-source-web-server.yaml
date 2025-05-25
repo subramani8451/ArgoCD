@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - chrissubramani/argocd:build-28
